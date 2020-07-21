@@ -165,11 +165,11 @@ def produce_list(stmt):
     print('TMP: {} stmt i_key is: {}; type is: {}\n'.format(stmt.keyword, stmt.i_key, type(stmt.i_key)))
     # print('TMP: stmt i_key.keyword is: {}'.format(stmt.i_key.keyword))
 
-    for stmt_item in stmt.i_key:
-        print(type(stmt_item))
-        print(dir(stmt_item))
-        print(stmt_item.i_leafref)
-        # print(stmt_item.i_derefed_leaf)
+    # for stmt_item in stmt.i_key:
+    #     print(type(stmt_item))
+    #     print(dir(stmt_item))
+    #     print(stmt_item.i_leafref)
+    #     # print(stmt_item.i_derefed_leaf)
 
     print('TMP: produce_list stmt i_children: {}'.format(stmt.i_children))
 
@@ -187,6 +187,7 @@ def produce_list(stmt):
         result = {arg: {"type": "array", "primaryKey": primaryKey, "items": []}}
         # result = {arg: {"type": "array", "items": []}}
     else:
+        print('TMP - Parent was a list')
         # result = {"type": "object", "properties": {arg: {"type": "array", "primaryKey": primaryKey, "items": []}}}
         result = {"type": "object", "properties": {arg: {"type": "array", "items": []}}}
 
