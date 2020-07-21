@@ -188,8 +188,8 @@ def produce_list(stmt):
         # result = {arg: {"type": "array", "items": []}}
     else:
         print('TMP - Parent was a list')
-        # result = {"type": "object", "properties": {arg: {"type": "array", "primaryKey": primaryKey, "items": []}}}
-        result = {"type": "object", "properties": {arg: {"type": "array", "items": []}}}
+        result = {"type": "object", "properties": {arg: {"type": "array", "primaryKey": primaryKey, "items": []}}}
+        # result = {"type": "object", "properties": {arg: {"type": "array", "items": []}}}
 
     if hasattr(stmt, 'i_children'):
         for child in stmt.i_children:
