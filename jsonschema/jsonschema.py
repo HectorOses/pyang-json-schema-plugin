@@ -159,14 +159,14 @@ def produce_list(stmt):
     print('TMP: {} parent is: {}'.format(stmt.keyword, parent))
     key = parent.search_one('key')
     print('TMP: {} parent key is: {}'.format(stmt.keyword, key))
-    print('TMP: {} i_key is: {}'.format(stmt.keyword, stmt.i_key))
+    print('TMP: {} stmt i_key is: {}'.format(stmt.keyword, stmt.i_key))
 
     print('TMP: produce_list stmt i_children: {}'.format(stmt.i_children))
 
     logging.debug("in produce_list: %s %s", stmt.keyword, stmt.arg)
     arg = qualify_name(stmt)
 
-    primaryKey = ""
+    primaryKey = key if key is not None: else ""
 
     if stmt.parent.keyword != "list":
         result = {arg: {"type": "array", "primaryKey": primaryKey, "items": []}}
