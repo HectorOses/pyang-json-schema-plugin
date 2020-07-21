@@ -157,7 +157,8 @@ def produce_list(stmt):
     print('TMP: produce_list stmt arg: {}'.format(stmt.arg))
     parent = stmt.parent
     print('TMP: {} parent is: {}'.format(stmt.keyword, parent))
-    key = parent.search_one('key')
+    key = stmt.search_one('key')
+    # key = parent.search_one('key')
     print('TMP: {} parent key is: {}'.format(stmt.keyword, key))
     print('TMP: {} stmt i_key is: {}'.format(stmt.keyword, stmt.i_key))
 
@@ -169,8 +170,8 @@ def produce_list(stmt):
     primaryKey = key if key is not None else ""
 
     if stmt.parent.keyword != "list":
-        result = {arg: {"type": "array", "primaryKey": primaryKey, "items": []}}
-        # result = {arg: {"type": "array", "items": []}}
+        # result = {arg: {"type": "array", "primaryKey": primaryKey, "items": []}}
+        result = {arg: {"type": "array", "items": []}}
     else:
         result = {"type": "object", "properties": {arg: {"type": "array", "primaryKey": primaryKey, "items": []}}}
         # result = {"type": "object", "properties": {arg: {"type": "array", "items": []}}}
