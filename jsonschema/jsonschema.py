@@ -154,10 +154,10 @@ def produce_leaf(stmt):
     return {arg: type_str}
 
 def produce_list(stmt):
-    print('TMP: produce_list stmt arg: {}'.format(stmt.keyword))
+    print('TMP: produce_list stmt arg: {}'.format(stmt.arg))
     parent = stmt.parent
     print('TMP: {} parent is: {}'.format(stmt.keyword, parent))
-    key = parent.i_key
+    key = parent.search_one('key')
     print('TMP: {} parent key is: {}'.format(stmt.keyword, key))
     print('TMP: {} i_key is: {}'.format(stmt.keyword, stmt.i_key))
 
