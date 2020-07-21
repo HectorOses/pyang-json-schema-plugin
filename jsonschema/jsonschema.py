@@ -166,6 +166,7 @@ def produce_list(stmt):
 
     for stmt_item in stmt.i_key:
         print(type(stmt_item))
+        print(dir(stmt_item))
         # print(stmt_item.i_derefed_leaf)
 
     print('TMP: produce_list stmt i_children: {}'.format(stmt.i_children))
