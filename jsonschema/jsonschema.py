@@ -154,11 +154,14 @@ def produce_leaf(stmt):
     return {arg: type_str}
 
 def produce_list(stmt):
+    print('TMP: produce_list stmt: {}'.format(stmt))
     logging.debug("in produce_list: %s %s", stmt.keyword, stmt.arg)
     arg = qualify_name(stmt)
 
+    primaryKey = ""
+
     if stmt.parent.keyword != "list":
-        result = {arg: {"type": "array", "items": []}}
+        result = {arg: {"type": "array", "primaryKey": primaryKey, "items": []}}
     else:
         result = {"type": "object", "properties": {arg: {"type": "array", "items": []}}}
 
