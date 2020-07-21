@@ -154,7 +154,7 @@ def produce_leaf(stmt):
     return {arg: type_str}
 
 def produce_list(stmt):
-    print('TMP: produce_list stmt: {}'.format(stmt))
+    print('TMP: produce_list stmt arg: {}'.format(stmt.arg))
     logging.debug("in produce_list: %s %s", stmt.keyword, stmt.arg)
     arg = qualify_name(stmt)
 
