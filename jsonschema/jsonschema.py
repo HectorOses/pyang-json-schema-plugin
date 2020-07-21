@@ -159,6 +159,7 @@ def produce_list(stmt):
     print('TMP: {} parent is: {}'.format(stmt.arg, parent))
     key = parent.search_one('key')
     print('TMP: {} parent key is: {}'.format(stmt.arg, key))
+    print('TMP: {} i_key is: {}'.format(stmt.arg, key))
 
     print('TMP: produce_list stmt i_children: {}'.format(stmt.i_children))
 
