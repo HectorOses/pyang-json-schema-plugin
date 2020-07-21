@@ -156,21 +156,17 @@ def produce_leaf(stmt):
 def produce_list(stmt):
     print('TMP: produce_list stmt arg: {}'.format(stmt.keyword))
     parent = stmt.parent
-    print('TMP: stmt {}; parent is: {}'.format(stmt.keyword, parent))
-
-    parent_key = parent.i_key
-    print('TMP: stmt {}; parent is: {}; parent key is: {}'.format(stmt.keyword, parent, parent_key))
+    print('TMP: {} parent is: {}'.format(stmt.keyword, parent))
+    key = parent.i_key
+    print('TMP: {} parent key is: {}'.format(stmt.keyword, key))
+    print('TMP: {} i_key is: {}'.format(stmt.keyword, stmt.i_key))
 
     print('TMP: produce_list stmt i_children: {}'.format(stmt.i_children))
 
     logging.debug("in produce_list: %s %s", stmt.keyword, stmt.arg)
     arg = qualify_name(stmt)
 
-    if parent_key is not None:
-        primaryKey = parent_key
-    else:
-        primaryKey = ""
-    
+    primaryKey = ""
 
     if stmt.parent.keyword != "list":
         result = {arg: {"type": "array", "primaryKey": primaryKey, "items": []}}
