@@ -158,9 +158,11 @@ def produce_list(stmt):
     parent = stmt.parent
     print('TMP: {} parent is: {}'.format(stmt.keyword, parent))
     # key = stmt.search_one('key')
-    key = parent.search_one('key')
+    parent_key = parent.search_one('key')
+    key = stmt.search_one('key')
     print('TMP: {} parent key is: {}'.format(stmt.keyword, key))
-    print('TMP: {} stmt i_key is: {}'.format(stmt.keyword, stmt.i_key))
+    print('TMP: {} stmt key is: {}'.format(stmt.keyword, key))
+    print('TMP: {} stmt i_key is: {}; type is: {}'.format(stmt.keyword, stmt.i_key, type(stmt.i_key)))
 
     print('TMP: produce_list stmt i_children: {}'.format(stmt.i_children))
 
