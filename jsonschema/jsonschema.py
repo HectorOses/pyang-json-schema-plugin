@@ -156,6 +156,8 @@ def produce_leaf(stmt):
 def produce_list(stmt):
     print('TMP: produce_list stmt arg: {}'.format(stmt.keyword))
     parent = stmt.parent
+    print('TMP: stmt {}; parent is: {}'.format(stmt.keyword, parent))
+
     parent_key = parent.i_key
     print('TMP: stmt {}; parent is: {}; parent key is: {}'.format(stmt.keyword, parent, parent_key))
 
