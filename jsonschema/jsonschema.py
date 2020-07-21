@@ -163,7 +163,7 @@ def produce_list(stmt):
     print('TMP: {} parent key is: {}'.format(stmt.keyword, key))
     print('TMP: {} stmt key is: {}'.format(stmt.keyword, key))
     print('TMP: {} stmt i_key is: {}; type is: {}\n'.format(stmt.keyword, stmt.i_key, type(stmt.i_key)))
-    print('TMP: stmt i_key.keyword is: {}'.format(stmt.i_key.keyword))
+    # print('TMP: stmt i_key.keyword is: {}'.format(stmt.i_key.keyword))
 
     for stmt_item in stmt.i_key:
         print(type(stmt_item))
