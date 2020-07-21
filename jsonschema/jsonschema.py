@@ -164,8 +164,9 @@ def produce_list(stmt):
     print('TMP: {} stmt key is: {}'.format(stmt.keyword, key))
     print('TMP: {} stmt i_key is: {}; type is: {}\n'.format(stmt.keyword, stmt.i_key, type(stmt.i_key)))
 
-    # for stmt_item in stmt.i_key:
-    #     print(stmt_item.i_derefed_leaf)
+    for stmt_item in stmt.i_key:
+        print(type(stmt_item))
+        # print(stmt_item.i_derefed_leaf)
 
     print('TMP: produce_list stmt i_children: {}'.format(stmt.i_children))
 
