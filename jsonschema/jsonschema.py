@@ -164,20 +164,23 @@ def produce_list(stmt):
     print('TMP: {} stmt key is: {}'.format(stmt.keyword, key))
     print('TMP: {} stmt i_key is: {}; type is: {}\n'.format(stmt.keyword, stmt.i_key, type(stmt.i_key)))
 
-    # for stmt_item in stmt.i_key:
-    #     print(stmt_item.i_leafref)
+    for stmt_item in stmt.i_key:
+        print(stmt_item.i_derefed_leaf)
 
     print('TMP: produce_list stmt i_children: {}'.format(stmt.i_children))
 
     logging.debug("in produce_list: %s %s", stmt.keyword, stmt.arg)
     arg = qualify_name(stmt)
 
-    primaryKey = key if key is not None else ""
+    if key is not None:
+        primaryKey = str(key).split()[1]
+    else:
+        primaryKey = ""
     print('TMP - Primary Key: {}'.format(primaryKey))
 
     if stmt.parent.keyword != "list":
         print('TMP - Parent was not a list')
-        result = {arg: {"type": "array", "primaryKey": str(primaryKey), "items": []}}
+        result = {arg: {"type": "array", "primaryKey": primaryKey, "items": []}}
         # result = {arg: {"type": "array", "items": []}}
     else:
         # result = {"type": "object", "properties": {arg: {"type": "array", "primaryKey": primaryKey, "items": []}}}
