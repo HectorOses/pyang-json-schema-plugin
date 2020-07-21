@@ -164,7 +164,11 @@ def produce_list(stmt):
     logging.debug("in produce_list: %s %s", stmt.keyword, stmt.arg)
     arg = qualify_name(stmt)
 
-    primaryKey = parent_key
+    if parent_key is not None:
+        primaryKey = parent_key
+    else:
+        primaryKey = ""
+    
 
     if stmt.parent.keyword != "list":
         result = {arg: {"type": "array", "primaryKey": primaryKey, "items": []}}
