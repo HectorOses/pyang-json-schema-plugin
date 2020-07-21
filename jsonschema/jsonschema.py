@@ -170,8 +170,10 @@ def produce_list(stmt):
 
     if stmt.parent.keyword != "list":
         result = {arg: {"type": "array", "primaryKey": primaryKey, "items": []}}
+        # result = {arg: {"type": "array", "items": []}}
     else:
-        result = {"type": "object", "properties": {arg: {"type": "array", "items": []}}}
+        result = {"type": "object", "properties": {arg: {"type": "array", "primaryKey": primaryKey, "items": []}}}
+        # result = {"type": "object", "properties": {arg: {"type": "array", "items": []}}}
 
     if hasattr(stmt, 'i_children'):
         for child in stmt.i_children:
